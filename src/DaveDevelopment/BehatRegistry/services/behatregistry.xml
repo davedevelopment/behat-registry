@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="behatregistry.context.initializer.class">DaveDevelopment\BehatRegistry\Context\Initializer\RegistryAwareInitializer</parameter>
+        <parameter key="behatregistry.class">DaveDevelopment\BehatRegistry\Registry</parameter>
+    </parameters>
+    <services>
+        <service id="behatregistry.registry" class="%behatregistry.class%">
+            <call method="offsetSet">
+                <argument type="string">parameters</argument>
+                <argument>%behat.context.parameters%</argument>
+            </call>
+            <call method="persist">
+                <argument type="string">parameters</argument>
+            </call>
+        </service>
+        <service id="behatregistry.context.initializer" class="%behatregistry.context.initializer.class%">
+            <argument type="service" id="behatregistry.registry" />
+            <tag name="behat.context.initializer" />
+            <tag name="behat.event_subscriber" />
+        </service>
+    </services>
+</container>
