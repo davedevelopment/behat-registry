@@ -8,13 +8,6 @@
     </parameters>
     <services>
         <service id="behatregistry.registry" class="%behatregistry.class%">
-            <call method="offsetSet">
-                <argument type="string">parameters</argument>
-                <argument>%behat.context.parameters%</argument>
-            </call>
-            <call method="persist">
-                <argument type="string">parameters</argument>
-            </call>
         </service>
         <service id="behatregistry.context.initializer" class="%behatregistry.context.initializer.class%">
             <argument type="service" id="behatregistry.registry" />

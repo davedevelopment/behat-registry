@@ -31,8 +31,7 @@ default:
 
 If you implement the
 `DaveDevelopment\BehatRegistry\Context\Initializer\RegistryAwareInterface` with
-your `Context` classes, they will have a Registry injected. By default the
-registry will have a parameters key that contains the context parameters.
+your `Context` classes, they will have a Registry injected. 
 
 ``` php
 <?php 
@@ -51,7 +50,7 @@ class FeatureContext implements RegistryAwareInterface
 ```
 
 If you want some items to persist between scenarios, call the persist method
-(the parameters are persisted between scenarios).
+with the key.
 
 ``` php
 <?php
