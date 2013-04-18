@@ -18,5 +18,11 @@
 
     "autoload": {
         "psr-0": { "DaveDevelopment\\BehatRegistry": "src/" }
+    },
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
